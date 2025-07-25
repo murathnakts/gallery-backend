@@ -1,6 +1,6 @@
 package com.murathnakts.config;
 
-import com.murathnakts.entity.User;
+import com.murathnakts.handler.AuthEntryPoint;
 import com.murathnakts.jwt.JwtAuthenticationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -17,7 +17,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfig {
 
     public static final String REGISTER = "/register";
-    public static final String AUTHENTICATE = "/authenticate";
+    public static final String AUTHENTICATE = "/login";
     public static final String REFRESH_TOKEN = "/refresh-token";
 
     @Autowired
@@ -26,12 +26,16 @@ public class SecurityConfig {
     @Autowired
     private JwtAuthenticationFilter jwtAuthenticationFilter;
 
+    @Autowired
+    private AuthEntryPoint authEntryPoint;
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeHttpRequests(request ->
                         request.requestMatchers(REGISTER, AUTHENTICATE, REFRESH_TOKEN).permitAll()
                                 .anyRequest().authenticated())
+                .exceptionHandling().authenticationEntryPoint(authEntryPoint).and()
                 .sessionManagement(session ->
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider)

@@ -1,11 +1,15 @@
 package com.murathnakts.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
 //Yeni tablo olusturmaz fakat extend eden tüm classlara kolon olusturur! (Ortak Alanlar icin)
+@Getter
+@Setter
 @MappedSuperclass
 public class BaseEntity {
 
