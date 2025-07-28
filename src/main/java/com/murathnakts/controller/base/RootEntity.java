@@ -1,4 +1,4 @@
-package com.murathnakts.controller;
+package com.murathnakts.controller.base;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;

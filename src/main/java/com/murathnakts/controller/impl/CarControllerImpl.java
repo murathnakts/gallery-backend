@@ -1,11 +1,11 @@
 package com.murathnakts.controller.impl;
 
+import com.murathnakts.controller.ICarController;
 import com.murathnakts.controller.base.BaseController;
-import com.murathnakts.controller.IAccountController;
 import com.murathnakts.controller.base.RootEntity;
-import com.murathnakts.dto.DtoAccount;
-import com.murathnakts.dto.DtoAccountIU;
-import com.murathnakts.service.IAccountService;
+import com.murathnakts.dto.DtoCar;
+import com.murathnakts.dto.DtoCarIU;
+import com.murathnakts.service.ICarService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,15 +14,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/account")
-public class AccountControllerImpl extends BaseController implements IAccountController {
+@RequestMapping("/car")
+public class CarControllerImpl extends BaseController implements ICarController {
 
     @Autowired
-    private IAccountService accountService;
+    private ICarService carService;
 
     @PostMapping("/save")
     @Override
-    public RootEntity<DtoAccount> saveAccount(@Valid @RequestBody DtoAccountIU account) {
-        return success(accountService.saveAccount(account));
+    public RootEntity<DtoCar> saveCar(@Valid @RequestBody DtoCarIU car) {
+        return success(carService.saveCar(car));
     }
 }

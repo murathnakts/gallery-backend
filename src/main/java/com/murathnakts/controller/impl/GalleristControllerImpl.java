@@ -1,11 +1,11 @@
 package com.murathnakts.controller.impl;
 
+import com.murathnakts.controller.IGalleristController;
 import com.murathnakts.controller.base.BaseController;
-import com.murathnakts.controller.IAccountController;
 import com.murathnakts.controller.base.RootEntity;
-import com.murathnakts.dto.DtoAccount;
-import com.murathnakts.dto.DtoAccountIU;
-import com.murathnakts.service.IAccountService;
+import com.murathnakts.dto.DtoGallerist;
+import com.murathnakts.dto.DtoGalleristIU;
+import com.murathnakts.service.IGalleristService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,15 +14,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/account")
-public class AccountControllerImpl extends BaseController implements IAccountController {
+@RequestMapping("/gallerist")
+public class GalleristControllerImpl extends BaseController implements IGalleristController {
 
     @Autowired
-    private IAccountService accountService;
+    private IGalleristService galleristService;
 
     @PostMapping("/save")
     @Override
-    public RootEntity<DtoAccount> saveAccount(@Valid @RequestBody DtoAccountIU account) {
-        return success(accountService.saveAccount(account));
+    public RootEntity<DtoGallerist> saveGallerist(@Valid @RequestBody DtoGalleristIU gallerist) {
+        return success(galleristService.saveGallerist(gallerist));
     }
 }

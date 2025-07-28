@@ -1,8 +1,8 @@
 package com.murathnakts.controller.impl;
 
-import com.murathnakts.controller.BaseController;
+import com.murathnakts.controller.base.BaseController;
 import com.murathnakts.controller.IAddressController;
-import com.murathnakts.controller.RootEntity;
+import com.murathnakts.controller.base.RootEntity;
 import com.murathnakts.dto.DtoAddress;
 import com.murathnakts.dto.DtoAddressIU;
 import com.murathnakts.service.IAddressService;

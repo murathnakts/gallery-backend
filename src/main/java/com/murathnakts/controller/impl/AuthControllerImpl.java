@@ -1,8 +1,8 @@
 package com.murathnakts.controller.impl;
 
-import com.murathnakts.controller.BaseController;
+import com.murathnakts.controller.base.BaseController;
 import com.murathnakts.controller.IAuthController;
-import com.murathnakts.controller.RootEntity;
+import com.murathnakts.controller.base.RootEntity;
 import com.murathnakts.dto.AuthRequest;
 import com.murathnakts.dto.AuthResponse;
 import com.murathnakts.dto.DtoUser;
